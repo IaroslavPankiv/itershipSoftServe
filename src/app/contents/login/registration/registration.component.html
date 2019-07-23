@@ -1,0 +1,56 @@
+<app-login></app-login>
+<div class="form">
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>First name</mat-label>
+      <input matInput placeholder="First Name"
+
+             name="name"
+      >
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Last name</mat-label>
+      <input matInput placeholder="Last Name"
+
+             name="name"
+      >
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <input
+        matInput placeholder="Enter your email"
+
+        name="email"
+      >
+
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>name</mat-label>
+      <input matInput placeholder="name"
+             [(ngModel)]="registerUserData.user_name"
+             name="name"
+      >
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
+      <input matInput placeholder="Enter your password"
+             [type]="hide ? 'password' : 'text'"
+             [(ngModel)]="registerUserData.password"
+             name="password"
+      >
+
+
+    </mat-form-field>
+  </p>
+
+  <p>
+    <button mat-button (click)="registerUser()">Register</button>
+  </p>
+
+</div>
