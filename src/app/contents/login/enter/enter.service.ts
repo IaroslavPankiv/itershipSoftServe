@@ -49,6 +49,10 @@ export class EnterService {
      return localStorage.getItem('token')
   }
 
+  logOut() {
+     return localStorage.removeItem('token')
+  }
+
 
   // виводить зареєстрованого користавача
   getAllUsers() {

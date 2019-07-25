@@ -12,7 +12,9 @@ import {
   MatExpansionModule,
   MatDialogModule,
   MatMenuModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatCardModule
+
 } from "@angular/material";
 import {MatBadgeModule} from "@angular/material/badge";
 import { FormsModule } from "@angular/forms";
@@ -32,7 +34,9 @@ const MaterialComponents = [
   MatExpansionModule,
   MatDialogModule,
   MatMenuModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  FormsModule,
+  MatCardModule
 
 
 

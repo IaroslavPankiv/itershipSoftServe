@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {EnterService} from "./enter.service";
 import { Router} from "@angular/router";
-import { Observable } from 'rxjs';
-import {ifStmt} from "@angular/compiler/src/output/output_ast";
+
 import {HttpResponse} from "@angular/common/http";
+
+
 
 
 @Component({
@@ -13,6 +14,8 @@ import {HttpResponse} from "@angular/common/http";
 })
 export class EnterComponent implements OnInit {
   loginUserData = {};
+
+
 
   constructor(private _auth: EnterService,
               private router: Router) { }
@@ -26,6 +29,10 @@ export class EnterComponent implements OnInit {
 
   //вхід в акаунт
   loginUser() {
+
+
+
+
     this._auth.loginUser(this.loginUserData)
       .subscribe((res: HttpResponse<any>) => {
 
@@ -33,7 +40,7 @@ export class EnterComponent implements OnInit {
           let jwtToken = res.body.access_token;
           localStorage.setItem('token', jwtToken);
           console.log(jwtToken);
-          this.router.navigate(['/basket'])
+          this.router.navigate(['/user'])
         }
 
             // this._auth.getUser().subscribe(

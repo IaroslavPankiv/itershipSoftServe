@@ -1,23 +1,28 @@
 <app-login></app-login>
 
-
+<form [>
 <div class="form">
   <p>
     <mat-form-field appearance="legacy">
       <mat-label>First name</mat-label>
-      <input matInput placeholder="First Name"
+      <input matInput
+             placeholder="First Name"
              [(ngModel)]="userModel.first_name"
+             name="firstName"
+             #firstName="ngModel"
+             required
 
-             name="name"
       >
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="legacy">
       <mat-label>Last name</mat-label>
-      <input matInput placeholder="Last Name"
+      <input matInput
+             placeholder="Last Name"
              [(ngModel)]="userModel.last_name"
-             name="name"
+             name="lastName"
+
       >
     </mat-form-field>
   </p>
@@ -25,11 +30,13 @@
     <mat-form-field>
       <input
         matInput placeholder="Enter your email"
-        [formControl]="email"
+
         [(ngModel)]="userModel.email"
+        *ngIf="email.invalid"
         name="email"
+
       >
-      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      <mat-error >{{getErrorMessage()}}</mat-error>
 
     </mat-form-field>
   </p>
@@ -40,6 +47,8 @@
       <input matInput placeholder="name"
              [(ngModel)]="userModel.username"
              name="name"
+
+
       >
     </mat-form-field>
   </p>
@@ -49,6 +58,8 @@
              [type]="hide ? 'password' : 'text'"
              [(ngModel)]="userModel.password"
              name="password"
+
+
       >
 
 
@@ -57,6 +68,9 @@
 
   <p>
     <button mat-button (click)="registerUser()">Register</button>
-  </p>
+    <button mat-button (click)="clearUser()">Clear form</button>
+
 
 </div>
+
+</form>

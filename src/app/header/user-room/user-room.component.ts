@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpResponse} from "@angular/common/http";
+import {EnterService} from "../../contents/login/enter/enter.service";
+import User  from "../../user";
+
 
 @Component({
   selector: 'app-user-room',
@@ -7,9 +11,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserRoomComponent implements OnInit {
 
-  constructor() { }
+
+  // UserName:string;
+
+
+  constructor(private enterServise: EnterService) { }
+
+
+
 
   ngOnInit() {
+    this.enterServise.getAllUsers().subscribe(
+      (response: HttpResponse<any>) => {
+        console.log(response);
+        this.user = response.body,
+          err => console.log(err)
+      }
+    )
+
   }
+
+
+logauut(){
+  this.enterServise.logOut();
+  window.location.reload();
+}
+
+
 
 }

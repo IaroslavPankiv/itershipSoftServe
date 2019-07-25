@@ -17,8 +17,8 @@ export class TokenInterceptorService implements HttpInterceptor {
     console.log(enterService)
     let tokenizedReq:any = req.clone({
       setHeaders: {
-        // 'Content-Type':  '!!application/json'
-      // Authorization: `Bearer ${enterService.getToken()}`
+
+      Authorization: `Bearer ${enterService.getToken()}`
   }
   })
     return next.handle(tokenizedReq)

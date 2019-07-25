@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {AuthorService} from "./author.service";
-import { User } from "../../../user";
+import User  from "../../../user";
 import {Router} from "@angular/router";
+
 
 
 
@@ -17,11 +18,14 @@ export class RegistrationComponent implements OnInit {
 
   userModel = new User
   (
-    'tr',
-    'tr',
-    'tr',
-    'tr',
-    'tr'
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+
+
   );
   constructor(private _auth: AuthorService,
               private router: Router) { }
@@ -38,7 +42,9 @@ export class RegistrationComponent implements OnInit {
 
 
 
-
+  clearUser(){
+    this.userModel = new User();
+  }
 
   ngOnInit() {
   }
@@ -51,7 +57,7 @@ export class RegistrationComponent implements OnInit {
       .subscribe(
         res => {
           console.log('Success ', res)
-          this.router.navigate(['/enter'])
+          this.router.navigate(['/login/enter'])
           },
          err => console.log(err)
   );

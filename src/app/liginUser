@@ -1,19 +1,11 @@
-import Role from './Role';
-
-
-export default class User{
+export class loginUser{
   constructor(
     public first_name: string,
     public last_name: string,
     public email: string,
     public username: string,
-    public password: any,
-    public id: string,
-    public authorities?: Role[],
-
+    public password: any
   ) {}
 
 
 }
-
-
