@@ -1,29 +1,46 @@
 <header>
-  <mat-toolbar>
-    <span>Our shopApp</span>
-    <a
-       mat-button matTooltip="Info about"
-       [routerLink]="['/one']">One</a>
-    <a
-       mat-button matTooltip="Info about"
-       [routerLink]="['/two']">two</a>
-    <a
-       mat-button matTooltip="Info about"
-       [routerLink]="['/three']">Three</a>
-    <a
-       mat-button matTooltip="Info about"
-       [routerLink]="['/login']"
-    >Log</a>
-    <!--[matMenuTriggerFor]="menu"-->
-    <!--<mat-menu #menu="matMenu">-->
-      <!--<button mat-menu-item>logIn</button>-->
-      <!--<button mat-menu-item>logOut</button>-->
-    <!--</mat-menu>-->
-    <a
-       mat-button matTooltip="Info about"
-       [routerLink]="['/basket']"
-    >Basket</a>
+  <mat-toolbar color="primary">
+    <div class="logo">Our shopApp</div>
+    <div class="nav">
+        <a
+           mat-button matTooltip="Info about"
+           [routerLink]="['/one']">One</a>
+        <a
+           mat-button matTooltip="Info about"
+           [routerLink]="['/two']">two</a>
+        <a
+          mat-button matTooltip="three"
+          [routerLink]="['/three']"
+        >Three</a>
+
+
+        <!--[matMenuTriggerFor]="menu"-->
+        <!--<mat-menu #menu="matMenu">-->
+          <!--<button mat-menu-item>logIn</button>-->
+          <!--<button mat-menu-item>logOut</button>-->
+        <!--</mat-menu>-->
+        <!--<a-->
+           <!--mat-button matTooltip="Info about"-->
+           <!--[routerLink]="['/basket']"-->
+        <!--&gt;Basket</a>-->
+
+    </div>
+    <div>
+      <a class="basker_user"
+         mat-button matTooltip="Info about basket"
+         [routerLink]="['/basket']">{{user.name + " basket"}}</a>
+      <a class="basker_user"
+         mat-button matTooltip="Info about user"
+         [routerLink]="['/user']">{{user.name }}</a>
+    </div>
+    <div>
+      <a class="log"
+         mat-button matTooltip="Registration or Enter"
+         [routerLink]="['/login']"
+      >Log</a>
+    </div>
   </mat-toolbar>
+
 
 
 

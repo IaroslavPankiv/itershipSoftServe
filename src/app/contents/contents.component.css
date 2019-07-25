@@ -1,9 +1,12 @@
-
+.center {
+  background-color: #eee;
+}
 .container {
   padding-top: 40px;
+
 }
 
 .main {
   min-height: 500px;
-  background-color: darkcyan;
+  background-color: #eee;
 }

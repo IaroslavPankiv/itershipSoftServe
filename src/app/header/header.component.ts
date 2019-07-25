@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  user = {name: "Yaroslav"}
 
 
-tel = 0;
 
 showSpiner = false;
 

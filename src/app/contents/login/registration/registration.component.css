@@ -1,3 +1,15 @@
 .form {
   text-align: center;
 }
+
+mat-form-field {
+  width: 220px;
+  margin-top: 15px;
+}
+
+mat-form-field-wrapper {
+  width: 200px;
+}
+mat-form-field-infix  {
+  width: 200px;
+}

@@ -8,6 +8,11 @@ import {LoginComponent} from "./contents/login/login.component";
 import {BasketComponent} from "./contents/basket/basket.component";
 import {RegistrationComponent} from "./contents/login/registration/registration.component";
 
+import {EnterComponent} from "./contents/login/enter/enter.component";
+import {UserRoomComponent} from "./header/user-room/user-room.component";
+import {AuthGuard} from "./auth.guard";
+// import {AuthGuard} from "./auth.guard";
+
 
 const routes: Routes = [
   { path: 'one', component: ContentsOneComponent},
@@ -15,7 +20,13 @@ const routes: Routes = [
   { path: 'three', component: ContentsThreeComponent},
   { path: 'login', component: LoginComponent},
   { path: 'basket', component: BasketComponent},
-  { path: 'login/registration', component: RegistrationComponent}
+  { path: 'login/registration', component: RegistrationComponent},
+  { path: 'login/enter', component: EnterComponent},
+  { path: 'user', component: UserRoomComponent,
+  canActivate: [AuthGuard]
+  }
+
+
 ];
 
 @NgModule({
@@ -30,5 +41,6 @@ export const routingComponents = [
   ContentsThreeComponent,
   LoginComponent,
   BasketComponent,
-  RegistrationComponent
+  RegistrationComponent,
+  EnterComponent
 ]

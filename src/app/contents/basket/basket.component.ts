@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EnterService } from "../login/enter/enter.service";
+import {HttpResponse} from "@angular/common/http";
+import { User } from "../../user";
 
 @Component({
   selector: 'app-basket',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BasketComponent implements OnInit {
 
-  constructor() { }
+  constructor(private enterServise: EnterService) { }
+
+  user: {}
 
   ngOnInit() {
+
+    this.enterServise.getAllUsers().subscribe(
+      (response: HttpResponse<any>) => {
+        console.log(response);
+        this.user = response.body,
+            err => console.log(err)
+      }
+    )
   }
+
 
 }

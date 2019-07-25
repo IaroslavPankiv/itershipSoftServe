@@ -1,0 +1,29 @@
+<app-login></app-login>
+<div class="form">
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>name</mat-label>
+      <input matInput placeholder="name"
+             [(ngModel)]="loginUserData.username"
+             name="name"
+      >
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
+      <input matInput placeholder="Enter your password"
+             [type]="hide ? 'password' : 'text'"
+             [(ngModel)]="loginUserData.password"
+             name="password"
+      >
+
+
+    </mat-form-field>
+  </p>
+
+  <p>
+    <button mat-button (click)="loginUser()">Register</button>
+  </p>
+
+
+</div>
