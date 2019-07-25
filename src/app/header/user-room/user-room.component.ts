@@ -12,7 +12,17 @@ import User  from "../../user";
 export class UserRoomComponent implements OnInit {
 
 
-  // UserName:string;
+ user = new User
+  (
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+
+
+);
 
 
   constructor(private enterServise: EnterService) { }

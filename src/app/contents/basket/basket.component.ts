@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EnterService } from "../login/enter/enter.service";
 import {HttpResponse} from "@angular/common/http";
+import User from "../../user";
 // import  User  from "../../user";
 
 @Component({
@@ -13,7 +14,21 @@ export class BasketComponent implements OnInit {
 
   constructor(private enterServise: EnterService) {
   }
-user:{};
+  user = new User
+  (
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+
+
+  );
+
+
+
+
   ngOnInit() {
 
     this.getUser();

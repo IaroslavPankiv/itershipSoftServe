@@ -4,7 +4,7 @@ header {
   width: 100%;
 }
 mat-sidenav-container {
-  background-color: #303030;
+  background-color: #707489;
 }
 
 mat-toolbar {
@@ -13,6 +13,7 @@ mat-toolbar {
   padding: 20px 0;
   z-index: 1000;
   justify-content: space-between;
+  background-color: #707489;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 5px 4px rgba(0,0,0,0.22);
 
 }
@@ -54,6 +55,7 @@ a:hover {
 
 .logo {
   margin-left: 15px;
+  color: #fff;
 
 }
 .navbar {

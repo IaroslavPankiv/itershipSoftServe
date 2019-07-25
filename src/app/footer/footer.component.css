@@ -6,7 +6,12 @@ footer {
   align-items: center;
   /*background: linear-gradient(45deg, #292929 25%, transparent 25%, transparent 75%, #292929 75%), linear-gradient(45deg, #292929 25%, transparent 25%, transparent 75%, #292929 75%) 0.1875em 0.1875em, radial-gradient(at 50% 0, #484847, #090909);*/
   /*background-size: 0.375em 0.375em, 0.375em 0.375em, 100% 100%;*/
-  background-color: black;
+  background: #707489;
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, 1), 0 5px 5px rgba(0, 0, 0, 1);
+  padding-top: 9px;
+  font-size: 10px;
+
+  /*#707489*/
 }
 
 .aboutAs {
@@ -35,16 +40,16 @@ footer {
   color: #fff;
 }
 .aboutAs a:hover{
-  color: #007ad9;
+  color: #000;
 }
 
 .contacts a:hover{
-  color: #007ad9;
+  color: #000;
 
 }
 
 .rights a:hover{
-  color: #fff;
+  color: #000;
 }
 footer li {
   list-style: none;
