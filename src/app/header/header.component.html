@@ -4,14 +4,14 @@
     <div class="nav">
         <a
            mat-button matTooltip="Info about"
-           [routerLink]="['/one']">One</a>
+           [routerLink]="['/one']">Category one</a>
         <a
            mat-button matTooltip="Info about"
-           [routerLink]="['/two']">two</a>
+           [routerLink]="['/two']">Category two</a>
         <a
           mat-button matTooltip="three"
           [routerLink]="['/three']"
-        >Three</a>
+        >Category three</a>
 
 
         <!--[matMenuTriggerFor]="menu"-->
@@ -28,16 +28,23 @@
     <div>
       <a class="basker_user"
          mat-button matTooltip="Info about basket"
-         [routerLink]="['/basket']">{{ " basket"}}</a>
+         [routerLink]="['/basket']">Basket {{user?.uname}}</a>
       <a class="basker_user"
          mat-button matTooltip="Info about user"
-         [routerLink]="['/user']">{{'user'}}</a>
+
+         [routerLink]="['/user']"> Room {{user?.uname}}</a>
     </div>
     <div>
       <a class="log"
          mat-button matTooltip="Registration or Enter"
          [routerLink]="['/login']"
+         *ngIf="isInvalid()"
+         [hidden]="!log"
+
+
       >Log</a>
+
+
     </div>
   </mat-toolbar>
 

@@ -19,6 +19,22 @@ import { UserRoomComponent } from './header/user-room/user-room.component';
 import {AuthGuard} from "./auth.guard";
 import { TokenInterceptorService } from "./token-interceptor.service";
 
+import {DialogModule} from 'primeng/dialog';
+import {ToastModule} from 'primeng/toast';
+import { JwtModule } from "@auth0/angular-jwt";
+
+
+export function tokenGetter() {
+  return localStorage.getItem("token");
+}
+
+
+
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +57,20 @@ import { TokenInterceptorService } from "./token-interceptor.service";
     HeaderModule,
     MatFormFieldModule,
     HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ["localhost:4200",'https://e-shop-auth.herokuapp.com/users/auth',
+          'https://e-shop-auth.herokuapp.com/users/login',
+          'https://e-shop-auth.herokuapp.com/users/me'
+        ],
+
+        blacklistedRoutes: [""],
+        skipWhenExpired: true
+      }
+    }),
+    DialogModule,
+    ToastModule
 
 
 

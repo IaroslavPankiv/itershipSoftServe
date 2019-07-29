@@ -1,15 +1,21 @@
-<p>user-room works!</p>
+
 <div class="container">
   <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{user.username}}</mat-card-title>
 
-    </mat-card-header>
-  <p>{{user.last_name}}</p>
-    <p>{{user.first_name}}</p>
+      <div mat-card-avatar class="example-header-image"></div>
+
+      <div class="desc"  >
+        <p>user: <span>{{user?.username}}</span></p>
+        <p> name:  <span>{{user?.first_name}} </span></p>
+        <p> email:  <span>{{user?.email}} </span></p>
+
+      </div>
+
+
+  <p></p>
+    <p></p>
     <mat-card-actions>
-      <button mat-button (click)="logauut()" >Exit</button>
+      <button mat-button color="warn" (click)="logauut()" >Exit</button>
 
     </mat-card-actions>
   </mat-card>

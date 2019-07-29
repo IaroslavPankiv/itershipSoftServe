@@ -36,8 +36,9 @@
         *ngIf="email.invalid"
         name="email"
         required
-
       >
+      <!--pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"-->
+
       <mat-error >{{getErrorMessage()}}</mat-error>
 
     </mat-form-field>
@@ -61,7 +62,9 @@
              [(ngModel)]="userModel.password"
              name="password"
              required
+
       >
+      <!--pattern="(?=.*[a-z]).{3,}"-->
 
 
 

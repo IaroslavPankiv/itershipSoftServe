@@ -8,8 +8,7 @@ export default class User{
     public email: string,
     public username: string,
     public password: any,
-    public id: string,
-    public authorities?: Role[],
+
 
   ) {}
 

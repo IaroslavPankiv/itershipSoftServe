@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {HttpResponse} from "@angular/common/http";
 import {EnterService} from "../../contents/login/enter/enter.service";
 import User  from "../../user";
@@ -10,19 +10,9 @@ import User  from "../../user";
   styleUrls: ['./user-room.component.css']
 })
 export class UserRoomComponent implements OnInit {
+// user: User[];
 
-
- user = new User
-  (
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-
-
-);
+ user = new User('','','','','');
 
 
   constructor(private enterServise: EnterService) { }
@@ -31,15 +21,23 @@ export class UserRoomComponent implements OnInit {
 
 
   ngOnInit() {
-    this.enterServise.getAllUsers().subscribe(
-      (response: HttpResponse<any>) => {
-        console.log(response);
-        this.user = response.body,
-          err => console.log(err)
-      }
-    )
+    this.getUserIn()
+
 
   }
+
+  public getUserIn() {
+  this.enterServise.getUsers().subscribe(
+    (response: HttpResponse<any>) => {
+      this.user = response.body
+        err => console.log(err)
+    }
+  )
+}
+
+
+
+
 
 
 logauut(){

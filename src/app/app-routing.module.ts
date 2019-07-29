@@ -19,9 +19,12 @@ const routes: Routes = [
   { path: 'two', component: ContentsTwoComponent},
   { path: 'three', component: ContentsThreeComponent},
   { path: 'login', component: LoginComponent},
+
   { path: 'basket', component: BasketComponent},
   { path: 'login/registration', component: RegistrationComponent},
-  { path: 'login/enter', component: EnterComponent},
+  { path: 'login/enter', component: EnterComponent,
+    },
+
   { path: 'user', component: UserRoomComponent,
   canActivate: [AuthGuard]
   }

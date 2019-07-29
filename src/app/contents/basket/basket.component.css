@@ -4,3 +4,8 @@ mat-expansion-panel {
 .container {
   margin-top: 20px;
 }
+
+mat-expansion-panel {
+  background-color: #0605052e;
+}
+

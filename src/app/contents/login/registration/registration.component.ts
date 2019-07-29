@@ -22,9 +22,7 @@ export class RegistrationComponent implements OnInit {
     '',
     '',
     '',
-    '',
-    '',
-
+    ''
 
   );
   constructor(private _auth: AuthorService,
@@ -43,16 +41,7 @@ export class RegistrationComponent implements OnInit {
 
 
   clearUser(){
-    this.userModel = new User
-    (
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-
-    );
+    this.userModel = new User('','','','','',);
   }
 
   ngOnInit() {

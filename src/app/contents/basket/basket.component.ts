@@ -13,45 +13,27 @@ export class BasketComponent implements OnInit {
 
 
   constructor(private enterServise: EnterService) {
+
   }
-  user = new User
-  (
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
 
-
-  );
-
+user = this.enterServise.isLoggedIn()
 
 
 
   ngOnInit() {
-
-    this.getUser();
-    console.log(this.user);
-  }
-
-
-  getUser() {
-    this.enterServise.getAllUsers()
-      .subscribe(
-        (response: HttpResponse<any>) => {
-          this.user = response.body
-          // if (response) {
-          //   console.log(this.user)
-          //   err => console.log(err)
-          //
-          // }
-
-
-        }
-      )
+    // console.log(this.basketUser);
 
 
   }
+
+
+  // public getUserIn() {
+  //   this.enterServise.getUsers().subscribe(
+  //     (response: HttpResponse<any>) => {
+  //       this.user = response.body
+  //       err => console.log(err)
+  //     }
+  //   )
+  // }
 
 }

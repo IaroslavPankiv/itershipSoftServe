@@ -18,4 +18,10 @@ export class AuthGuard implements CanActivate {
       return false
     }
    }
+
+   // canActivate():boolean{
+   //  if (this.EnterService.getUsers()){
+   //    return false
+   //  }
+   // }
 }
