@@ -1,74 +1,88 @@
 <p>Hello this basket is  {{user?.uname}} !</p>
 <div class="contaiter">
-  <mat-accordion>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Self aware panel
-      </mat-panel-title>
-      <mat-panel-description>
-        Currently I am {{panelOpenState ? 'open' : 'closed'}}
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>I'm visible because I am open</p>
-  </mat-expansion-panel>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Self aware panel
-        </mat-panel-title>
-        <mat-panel-description>
-          Currently I am {{panelOpenState ? 'open' : 'closed'}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Self aware panel
-        </mat-panel-title>
-        <mat-panel-description>
-          Currently I am {{panelOpenState ? 'open' : 'closed'}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Self aware panel
-        </mat-panel-title>
-        <mat-panel-description>
-          Currently I am {{panelOpenState ? 'open' : 'closed'}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Self aware panel
-        </mat-panel-title>
-        <mat-panel-description>
-          Currently I am {{panelOpenState ? 'open' : 'closed'}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Self aware panel
-        </mat-panel-title>
-        <mat-panel-description>
-          Currently I am {{panelOpenState ? 'open' : 'closed'}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
-  </mat-accordion>
+  <div class="shopping-cart">
+      <!-- Title -->
+      <div class="total">
+        <p>Shopping Bag</p>
+        <button mat-raised-button color="accent" class="total-prices">Send By</button>
+
+        <button mat-raised-button color="accent" class="total-prices">Talal price:</button>
+
+      </div>
+
+    <div class="item">
+      <div class="ecom-ui ecom-ui-six">
+        <span class="ecom-hot bg-lblue">New</span>
+        <div class="img-container">
+          <a href="#"><img class="img-responsive" src="../../../assets/Tom_the_Cat.jpg" alt=""></a>
+        </div>
+        <div class="product-details">
+          <h4><a href="#">Baby Doll - Toys</a> <span class="pull-right lblue">$14.99</span></h4>
+          <p>The standard chunk of morel sate gypsum used since 1984.</p>
+
+          <div class="sociale">
+            <mat-icon #comments class="comments"
+                      matBadge="15"
+                      type MatBadgeSize = 'small'
+
+            >comments</mat-icon>
+
+            <mat-icon #likes class="likes"
+                      (click)="clickLiles()"
+                      [class.likesOrange]="orange"
+            >star</mat-icon>
+          </div>
+
+        </div>
+      </div>
+      <div class="quantity"> <span class="basket_span">Quantity:</span>
+        <input type="number" name="name" value="1">
+      </div>
+
+      <div class="total-price"><span class="basket_span">Price: </span> $549</div>
+      <div class="delite_item"><span class="basket_span">Delite this item</span><img src="../../../assets/del.png" alt="del"></div>
+    </div>
+
+
+
+
+    <div class="item">
+      <div class="ecom-ui ecom-ui-six">
+        <span class="ecom-hot bg-lblue">New</span>
+        <div class="img-container">
+          <a href="#"><img class="img-responsive" src="../../../assets/Tom_the_Cat.jpg" alt=""></a>
+        </div>
+        <div class="product-details">
+          <h4><a href="#">Baby Doll - Toys</a> <span class="pull-right lblue">$14.99</span></h4>
+          <p>The standard chunk of morel sate gypsum used since 1984.</p>
+        </div>
+      </div>
+      <div class="quantity"> <span class="basket_span">Quantity:</span>
+        <input type="number" name="name" value="1">
+      </div>
+
+      <div class="total-price"><span class="basket_span">Price: </span> $549</div>
+      <div class="delite_item"><span class="basket_span">Delite this item</span><img src="../../../assets/del.png" alt="del"></div>
+    </div>
+
+
+
+
+    </div>
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

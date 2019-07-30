@@ -14,6 +14,8 @@ export class UserRoomComponent implements OnInit {
 
  user = new User('','','','','');
 
+whooIsUser:boolean;
+ whooUser  = this.enterServise.isLoggedIn()
 
   constructor(private enterServise: EnterService) { }
 
@@ -22,7 +24,7 @@ export class UserRoomComponent implements OnInit {
 
   ngOnInit() {
     this.getUserIn()
-
+    this.getAdmin()
 
   }
 
@@ -34,6 +36,22 @@ export class UserRoomComponent implements OnInit {
     }
   )
 }
+
+
+
+
+
+getAdmin() {
+  console.log(this.whooUser);
+  if (this.whooUser.urole === "admin"){
+
+    return this.whooIsUser = true
+  }else{
+    return this.whooIsUser = false
+  }
+
+}
+
 
 
 

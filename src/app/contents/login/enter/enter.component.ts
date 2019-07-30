@@ -41,6 +41,7 @@ export class EnterComponent implements OnInit {
 
     this.enterServise.loginUser(this.user)
       .subscribe((response: HttpResponse<any>) => {
+
         if (response ) {
 
           const jwtTokenBody = response.body.access_token;
@@ -49,14 +50,15 @@ export class EnterComponent implements OnInit {
 
           localStorage.setItem('token', jwtTokenBody);
           this.router.navigate(['/user']);
-
         }
+
         if (this.enterServise.isLoggedIn()){
             const user = this.enterServise.isLoggedIn()
           alert('You are welkome  ' + user.uname)
         }
 
-      });
+      },
+      err => alert('err'));
   }
 
   //вхід в акаунт

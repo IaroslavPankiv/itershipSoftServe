@@ -14,7 +14,9 @@ import {
   MatMenuModule,
   MatFormFieldModule,
   MatCardModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatListModule,
+
 
 
 
@@ -43,6 +45,8 @@ const MaterialComponents = [
   MatCardModule,
   MatDialogModule,
   MatSnackBarModule,
+  MatListModule,
+  MatIconModule
 
 
 

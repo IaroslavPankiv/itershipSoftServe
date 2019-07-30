@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EnterService } from "../login/enter/enter.service";
+
 import {HttpResponse} from "@angular/common/http";
 import User from "../../user";
 // import  User  from "../../user";
@@ -11,7 +12,9 @@ import User from "../../user";
 })
 export class BasketComponent implements OnInit {
 
-
+orange = true;
+comemnts = this.clickComments();
+ likesClass = 'likesOrang'
   constructor(private enterServise: EnterService) {
 
   }
@@ -27,13 +30,17 @@ user = this.enterServise.isLoggedIn()
   }
 
 
-  // public getUserIn() {
-  //   this.enterServise.getUsers().subscribe(
-  //     (response: HttpResponse<any>) => {
-  //       this.user = response.body
-  //       err => console.log(err)
-  //     }
-  //   )
-  // }
+  clickLiles() {
+   if (this.orange == true){
+     return this.orange = false
+   } else if (this.orange ==false) {
+      return this.orange = true
+    }
 
+
+  }
+
+  clickComments(){
+
+  }
 }

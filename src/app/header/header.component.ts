@@ -51,7 +51,9 @@ user = this.enterServise.isLoggedIn();
     if (localStorage.getItem('token')) {
       return false
     }
+
     return true
+
   }
 
 

@@ -1,18 +1,18 @@
 
-<div class="container">
+<div *ngIf="whooIsUser" class="container">
   <mat-card class="example-card">
 
-      <div mat-card-avatar class="example-header-image"></div>
+    <div mat-card-avatar class="example-header-image"></div>
 
-      <div class="desc"  >
-        <p>user: <span>{{user?.username}}</span></p>
-        <p> name:  <span>{{user?.first_name}} </span></p>
-        <p> email:  <span>{{user?.email}} </span></p>
+    <div class="desc"  >
+      <p>user: <span>{{user?.username}}</span></p>
+      <p> name:  <span>{{user?.first_name}} </span></p>
+      <p> email:  <span>{{user?.email}} </span></p>
 
-      </div>
+    </div>
 
 
-  <p></p>
+    <p></p>
     <p></p>
     <mat-card-actions>
       <button mat-button color="warn" (click)="logauut()" >Exit</button>
@@ -20,5 +20,30 @@
     </mat-card-actions>
   </mat-card>
 </div>
+
+
+<div *ngIf="!whooIsUser" class="container">
+  <mat-card class="example-card admin">
+
+    <div mat-card-avatar class="example-header-image"></div>
+
+    <div class="desc"  >
+      <p>Admin: <span>{{user?.username}}</span></p>
+      <p> Admin name:  <span>{{user?.first_name}} </span></p>
+      <p> Admin email:  <span>{{user?.email}} </span></p>
+
+    </div>
+
+
+    <p></p>
+    <p></p>
+    <mat-card-actions>
+      <button mat-button color="warn" (click)="logauut()" >Exit</button>
+
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+
 
 
