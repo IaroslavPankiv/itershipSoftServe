@@ -1,4 +1,4 @@
-<p>Hello this basket is  {{user?.uname}} !</p>
+<!--<p>Hello this basket is  {{user?.uname}} !</p>-->
 <div class="contaiter">
   <div class="shopping-cart">
       <!-- Title -->
@@ -22,8 +22,11 @@
 
           <div class="sociale">
             <mat-icon #comments class="comments"
-                      matBadge="15"
-                      type MatBadgeSize = 'small'
+                      matBadge="{{count}}"
+                      matBadgeSize = 'small'
+                      matBadgeColor="warn"
+                      matBadgePosition="below after"
+                      (click)="clickComments()"
 
             >comments</mat-icon>
 
@@ -55,6 +58,22 @@
         <div class="product-details">
           <h4><a href="#">Baby Doll - Toys</a> <span class="pull-right lblue">$14.99</span></h4>
           <p>The standard chunk of morel sate gypsum used since 1984.</p>
+
+          <div class="sociale">
+            <mat-icon #comments class="comments"
+                      matBadge="{{count}}"
+                      matBadgeSize = 'small'
+                      matBadgePosition="below after"
+                      (click)="clickComments()"
+
+            >comments</mat-icon>
+
+            <mat-icon #likes class="likes"
+                      (click)="clickLiles()"
+                      [class.likesOrange]="orange"
+            >star</mat-icon>
+          </div>
+
         </div>
       </div>
       <div class="quantity"> <span class="basket_span">Quantity:</span>

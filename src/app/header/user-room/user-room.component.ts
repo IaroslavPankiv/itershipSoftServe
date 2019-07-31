@@ -45,9 +45,9 @@ getAdmin() {
   console.log(this.whooUser);
   if (this.whooUser.urole === "admin"){
 
-    return this.whooIsUser = true
+    return this.whooIsUser = !true
   }else{
-    return this.whooIsUser = false
+    return this.whooIsUser = !false
   }
 
 }

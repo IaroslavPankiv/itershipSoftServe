@@ -11,7 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HeaderModule} from "./header/header/header.module";
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {AuthService} from "./header/auth.service";
+import {HeaderService} from "./header/header.service";
 import { FormsModule } from "@angular/forms";
 import {EnterService} from "./contents/login/enter/enter.service";
 import {ContentService} from "./contents/content.service";
@@ -78,7 +78,7 @@ export function tokenGetter() {
 
   ],
   providers: [
-    AuthService,
+    HeaderService,
     EnterService,
     ContentService,
     AuthGuard,

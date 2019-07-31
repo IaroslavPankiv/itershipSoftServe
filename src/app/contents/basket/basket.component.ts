@@ -3,6 +3,7 @@ import { EnterService } from "../login/enter/enter.service";
 
 import {HttpResponse} from "@angular/common/http";
 import User from "../../user";
+import {count} from "rxjs/operators";
 // import  User  from "../../user";
 
 @Component({
@@ -14,7 +15,12 @@ export class BasketComponent implements OnInit {
 
 orange = true;
 comemnts = this.clickComments();
- likesClass = 'likesOrang'
+ count:number = 1;
+
+
+
+
+
   constructor(private enterServise: EnterService) {
 
   }
@@ -41,6 +47,8 @@ user = this.enterServise.isLoggedIn()
   }
 
   clickComments(){
+
+    return this.count = this.count + 1
 
   }
 }

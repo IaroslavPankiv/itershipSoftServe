@@ -3,6 +3,7 @@ import {EnterService} from "../contents/login/enter/enter.service";
 import {HttpResponse} from "@angular/common/http";
 import {DialogModule} from 'primeng/dialog';
 import User from '../user';
+import {HeaderService} from "./header.service";
 
 
 
@@ -24,7 +25,8 @@ log = this.isInvalid();
 
 user = this.enterServise.isLoggedIn();
 
-  constructor(private enterServise: EnterService) { }
+  constructor(private enterServise: EnterService,
+              private headerServise: HeaderService) { }
 
   ngOnInit() {
 
@@ -36,15 +38,28 @@ user = this.enterServise.isLoggedIn();
 
 
 
+//  підписка і респонс на всі items
+//   public getAllItems() {
+//     this.headerServise.getAllItems().subscribe(
+//       (response: HttpResponse<any>) => {
+//         this.items = response.body
+//         err => console.log(err)
+//       }
+//     )
+//   }
 
-  // public getUserIn() {
-  //   this.enterServise.getUsers().subscribe(
-  //     (response: HttpResponse<any>) => {
-  //       this.user = response.body
-  //       err => console.log(err)
-  //     }
-  //   )
-  // }
+
+ // підписка і респонс на категорії
+//   public getCategory() {
+//     this.headerServise.getCategory().subscribe(
+//       (response: HttpResponse<any>) => {
+//         console.log(response)
+//         err => console.log(err)
+//       }
+//     )
+//   }
+
+
 
 
   isInvalid() {

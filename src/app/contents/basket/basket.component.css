@@ -1,3 +1,11 @@
+* :focus {
+  outline: none;
+  outline-offset: 0;
+}
+
+
+
+
 mat-expansion-panel {
   margin-top: 10px;
 }
@@ -19,6 +27,7 @@ mat-expansion-panel {
   display: flex;
   justify-content: space-around;
   box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  margin-top: 20px;
   align-items: center;
 }
 
@@ -83,17 +92,24 @@ mat-expansion-panel {
 
 .sociale {
   position: absolute;
-  top: 10px;
+  top: 5px;
   left: 5px;
+  outline: none;
+
 }
 .comments {
   color: #707489;
-  margin-right: 5px;
+  margin-right: 7px;
+  cursor: pointer;
+  outline: none;
+
 
 }
 
 .likes {
   cursor: pointer;
+  margin-left: 7px;
+  outline: none;
 
 }
 
@@ -132,7 +148,7 @@ mat-expansion-panel {
   width: 23%;
   max-height: 280px;
   margin: 15px;
-
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
   padding: 15px 20px;
   border: 1px solid #ddd;
   background: #fff;
