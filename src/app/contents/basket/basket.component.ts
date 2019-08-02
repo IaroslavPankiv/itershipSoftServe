@@ -4,6 +4,7 @@ import { EnterService } from "../login/enter/enter.service";
 import {HttpResponse} from "@angular/common/http";
 import User from "../../user";
 import {count} from "rxjs/operators";
+import {HeaderService} from "../../header/header.service";
 // import  User  from "../../user";
 
 @Component({
@@ -17,11 +18,12 @@ orange = true;
 comemnts = this.clickComments();
  count:number = 1;
 
+item = {};
 
 
 
-
-  constructor(private enterServise: EnterService) {
+  constructor(private enterServise: EnterService,
+              private headerServise: HeaderService) {
 
   }
 
@@ -31,7 +33,7 @@ user = this.enterServise.isLoggedIn()
 
   ngOnInit() {
     // console.log(this.basketUser);
-
+  this.headerServise.cool
 
   }
 
@@ -47,8 +49,6 @@ user = this.enterServise.isLoggedIn()
   }
 
   clickComments(){
-
     return this.count = this.count + 1
-
   }
 }

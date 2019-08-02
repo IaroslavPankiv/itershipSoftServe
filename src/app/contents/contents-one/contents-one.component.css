@@ -10,14 +10,17 @@
   border-width: 2px;
 }
 .ecom-ui {
+  cursor: pointer;
   position: relative;
-  width: 23%;
-  max-height: 280px;
-  margin: 20px auto;
+  min-width: 180px;
+  min-height: 250px;
+  max-height: 250px;
+  margin: 5px;
   padding: 15px 20px;
   border: 1px solid #ddd;
   background: #fff;
   border-radius: 5px;
+  max-width: 180px;
 }
 
 .ecom-ui-six .ecom-hot {
@@ -34,6 +37,11 @@
   border-top-right-radius: 15px !important;
 }
 
+
+item_cards {
+  width: 100%;
+  height: 100%;
+}
 .ecom-ui .ecom-hot {
   position: absolute;
   top: -15px;
@@ -50,9 +58,12 @@
 .bg-lblue {
   background-color: #32c8de !important;
 }
-
 a {
   text-decoration: none;
+}
+
+.span_title {
+
   color: #777;
   font-size: 14px;
 }

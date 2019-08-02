@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/internal/operators';
+import {Item} from "../item";
 
 
 @Injectable({
@@ -7,38 +10,34 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HeaderService {
 
-  private someUrl = "https://e-shop-auth.herokuapp.com/users/auth"
+  cool:{};
+
+
+
+  someUrl = "https://e-shop-auth.herokuapp.com/users/auth"
+  comentsUrl = "https://comment-web-service.herokuapp.com"
+  produrtіUrl = 'https://shop-shop.herokuapp.com'
 
 
   constructor(private http: HttpClient) { }
 
-// берем всі items
-  // getAllItems() {
-  //
-  //   const requestHeaders = {
-  //     'Authorization': 'Bearer ' + localStorage.getItem('token'),
-  //     'Auth-Method': 'get',
-  //     'Auth-URL': '',
-  //     'Content-Type': 'application/json'
-  //
-  //   };
-  //   return this.http.post<any>(this.someUrl,{ headers: requestHeaders , observe: 'response'})
-  // }
 
 
-//берем категорії товірів
-  getCategory() {
 
-      const requestHeaders = {
-        'Authorization': 'Bearer ' + localStorage.getItem('token'),
-        'Auth-Method': 'get',
-        'Auth-URL': '',
-        'Content-Type': 'application/json'
+// берем items товірів
+  getAllItems() {
 
-      };
-      return this.http.post<any>(this.someUrl,{ headers: requestHeaders , observe: 'response'})
-    }
+    const requestHeaders = {
+      "Authorization":  "Bearer " + localStorage.getItem('token'),
+      "Auth-Method":  "GET",
+      "Auth-URL": this.produrtіUrl + "/api/shop/products",
+    };
 
+    return this.http.post<any>(
+      this.someUrl, {},
+      { headers: requestHeaders, observe: 'response'}
+    ).pipe(catchError(err => throwError('Something went wrong')))
+  }
 
 
 

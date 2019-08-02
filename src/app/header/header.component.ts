@@ -4,6 +4,7 @@ import {HttpResponse} from "@angular/common/http";
 import {DialogModule} from 'primeng/dialog';
 import User from '../user';
 import {HeaderService} from "./header.service";
+import {ViewEncapsulation} from "@angular/compiler/src/compiler_facade_interface";
 
 
 
@@ -12,7 +13,8 @@ import {HeaderService} from "./header.service";
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+
 })
 export class HeaderComponent implements OnInit {
 
@@ -50,14 +52,14 @@ user = this.enterServise.isLoggedIn();
 
 
  // підписка і респонс на категорії
-//   public getCategory() {
-//     this.headerServise.getCategory().subscribe(
-//       (response: HttpResponse<any>) => {
-//         console.log(response)
-//         err => console.log(err)
-//       }
-//     )
-//   }
+ getCategory() {
+    this.headerServise.getAllItems().subscribe(
+      (response: HttpResponse<any>) => console.log(response),
+
+        err => console.log(err)
+
+    )
+  }
 
 
 

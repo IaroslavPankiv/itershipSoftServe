@@ -15,7 +15,7 @@ import {Router} from "@angular/router";
 export class RegistrationComponent implements OnInit {
 
   email = new FormControl('', [Validators.required, Validators.email]);
-
+  hide = true ;
   userModel = new User
   (
     '',

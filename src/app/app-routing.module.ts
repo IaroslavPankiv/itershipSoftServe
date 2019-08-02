@@ -11,6 +11,9 @@ import {RegistrationComponent} from "./contents/login/registration/registration.
 import {EnterComponent} from "./contents/login/enter/enter.component";
 import {UserRoomComponent} from "./header/user-room/user-room.component";
 import {AuthGuard} from "./auth.guard";
+import {ShopItemComponent} from "./contents/shop-item/shop-item.component";
+import {AboutComponent} from "./header/about/about.component";
+import {ContactsComponent} from "./header/contacts/contacts.component";
 // import {AuthGuard} from "./auth.guard";
 
 
@@ -27,8 +30,11 @@ const routes: Routes = [
 
   { path: 'user', component: UserRoomComponent,
   canActivate: [AuthGuard]
-  }
-
+  },
+  { path: 'item', component: ShopItemComponent},
+  { path: 'about', component: AboutComponent},
+  { path: 'contacts', component: ContactsComponent},
+  { path: 'home/one', component: ContentsOneComponent}
 
 ];
 
@@ -45,5 +51,8 @@ export const routingComponents = [
   LoginComponent,
   BasketComponent,
   RegistrationComponent,
-  EnterComponent
+  EnterComponent,
+  ShopItemComponent,
+  AboutComponent,
+  ContactsComponent,
 ]

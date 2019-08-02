@@ -1,18 +1,50 @@
 <header>
   <mat-toolbar>
     <div class="logo">Our shopApp</div>
-    <div class="nav">
-        <a
-           mat-button matTooltip="Info about"
-           [routerLink]="['/one']">Category one</a>
-        <a
-           mat-button matTooltip="Info about"
-           [routerLink]="['/two']">Category two</a>
-        <a
-          mat-button matTooltip="three"
-          [routerLink]="['/three']"
-        >Category three</a>
+    <mat-icon class="logo_menu" matTooltip="Menu" [matMenuTriggerFor]="animals">menu</mat-icon>
 
+    <mat-menu #animals="matMenu">
+      <button class="span_menu" [routerLink]="['/one']" mat-menu-item
+              (click)="getCategory()"
+              [matMenuTriggerFor]="vertebrates">Vertebrates</button>
+      <button class="span_menu" mat-menu-item  [matMenuTriggerFor]="invertebrates">Invertebrates</button>
+      <button class="span_menu" mat-menu-item >Invertebrates</button>
+    </mat-menu>
+
+    <mat-menu #vertebrates="matMenu">
+      <button class="span_menu"  mat-menu-item [matMenuTriggerFor]="fish">Fishes</button>
+      <button class="span_menu" mat-menu-item [matMenuTriggerFor]="amphibians">Amphibians</button>
+      <button class="span_menu"  mat-menu-item [matMenuTriggerFor]="reptiles">Reptiles</button>
+
+    </mat-menu>
+
+    <mat-menu #invertebrates="matMenu">
+      <button class="span_menu" mat-menu-item>Insects</button>
+      <button class="span_menu" mat-menu-item>Molluscs</button>
+
+    </mat-menu>
+
+    <mat-menu #fish="matMenu">
+      <button class="span_menu" mat-menu-item>Baikal oilfish</button>
+
+
+    </mat-menu>
+
+    <mat-menu #amphibians="matMenu">
+      <button class="span_menu" mat-menu-item>Sonoran desert toad</button>
+    </mat-menu>
+
+    <mat-menu #reptiles="matMenu">
+      <button class="span_menu" mat-menu-item>Banded Day Gecko</button>
+
+    </mat-menu>
+    <div class="nav">
+
+        <a [routerLink]="['/one']" matTooltip="Info about"><span class="nav_button">Home</span></a>
+
+        <a [routerLink]="['/about']" matTooltip="Info about"><span class="nav_button">About</span></a>
+
+        <a  [routerLink]="['/contacts']" matTooltip="Info about"><span class="nav_button">Contacts</span></a>
 
         <!--[matMenuTriggerFor]="menu"-->
         <!--<mat-menu #menu="matMenu">-->
@@ -26,26 +58,40 @@
 
     </div>
     <div>
-      <a class="basker_user"
-         mat-button matTooltip="Info about basket"
-         [routerLink]="['/basket']">Basket {{user?.uname}}</a>
-      <a class="basker_user"
-         mat-button matTooltip="Info about user"
 
-         [routerLink]="['/user']"> Room {{user?.uname}}</a>
+      <!--<a class=" basket basker_user"-->
+         <!--mat-button matTooltip="Info about basket"-->
+         <!--[routerLink]="['/basket']">Basket {{user?.uname}}</a>-->
+
+
+
     </div>
+
+  <div class="user">
+    <img src="../../assets/basket1.png"
+         mat-button matTooltip="Info about basket"
+         [routerLink]="['/basket']"
+         class="basket">
+
+
+    <img src="../../assets/id.png"
+         mat-button matTooltip="Info about  {{user?.uname}} "
+         [routerLink]="['/user']"
+         class="id">
+  </div>
+
+
     <div>
       <a class="log"
          mat-button matTooltip="Registration or Enter"
-         [routerLink]="['/login']"
+         [routerLink]="['/user']"
          *ngIf="isInvalid()"
          [hidden]="!log"
-
-
-      >Log</a>
-
+      >Log in</a>
 
     </div>
+
+
   </mat-toolbar>
 
 

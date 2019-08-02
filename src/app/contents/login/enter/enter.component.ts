@@ -24,7 +24,7 @@ export class EnterComponent implements OnInit {
 
   user:any =  {};
   panelOpenState:any;
-  hide:any;
+  hide = true;
   constructor(private enterServise: EnterService,
               private router: Router) { }
 
@@ -87,16 +87,6 @@ export class EnterComponent implements OnInit {
 
 
 
-//   loginUserWithTokens() {
-//     this._auth.loginUserWithToken(this.loginUserData).subscribe(
-//       res => {
-//         console.log(res),
-//           this.router.navigate(['/basket']),
-//           err => console.log(err)
-//       }
-//   )
-//
-// }
 
 
 

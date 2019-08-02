@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-contents',
@@ -11,6 +12,11 @@ export class ContentsComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
+
+
+
 
 
 

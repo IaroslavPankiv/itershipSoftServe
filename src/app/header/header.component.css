@@ -1,4 +1,8 @@
 
+button {
+  outline: none;
+}
+
 header {
 
   width: 100%;
@@ -21,31 +25,42 @@ mat-toolbar {
   line-height: 0;
 
 }
-span {
-  margin-right: 25px;
-  font-size: 20px;
-}
 
-a {
-  min-width: 15px;
-  max-height: 15px;
-  padding: 11px;
-  /*margin-right: 10px;*/
-  margin: 10px;
-  background-color: #eee;
-  text-decoration: none;
-  border-radius: 3px;
-  color: #000;
+
+
+.span_menu {
   font-size: 10px;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
 }
 
-.mat-menu-panel {
-  min-width: inherit;
-  min-width: inherit;
+.mat-menu-panel{
+  display: flex;
+  flex-direction: column;
+  overflow:  hidden;
+  background-color: #000;
 }
+
+
+
+
+a{
+  text-decoration: none;
+  transition: 0.9s;
+  color: #000;
+  font-size: 12px;
+}
+
+
+.nav_button:hover {
+  color: #fff;
+  transition: 0.9s;
+}
+
 
 a:hover {
-  color: #000;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -64,4 +79,69 @@ a:hover {
   align-items: center;
 }
 .basket_user {
+}
+
+
+.basket {
+  width: 23px;
+  height: 24px;
+  cursor: pointer;
+  outline: none;
+  margin-right: 20px;
+  transition: 0.5s ;
+  margin-top: 3px;
+
+}
+.basket:hover {
+  transition: 0.5s ;
+  transform: scale(1.4);
+}
+
+
+.id {
+  width: 23px;
+  height: 27px;
+  cursor: pointer;
+  outline: none;
+  transition: 0.5s ;
+  margin-top: 3px;
+}
+
+.id:hover {
+  transition: 0.5s ;
+  transform: scale(1.4);
+}
+
+
+.mat-menu-item-submenu-trigger::after  {
+  display: none;
+}
+.mat-menu-item {
+  padding: 0 0 0 10px;
+  height: 36px;
+
+}
+
+
+.cdk-overlay-connected-position-bounding-box {
+  top: 40px;
+}
+
+.logo_menu{
+
+
+  opacity: 1;
+  transition: 1s;
+  cursor: pointer;
+
+
+}
+
+.logo_menu:hover {
+  opacity: 0.6;
+  transition: 1s;
+  transform: scale(1.4);
+  color: #f66e6eb5;
+
+
 }
