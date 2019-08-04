@@ -32,7 +32,7 @@ mat-expansion-panel {
 }
 
 
-.item {
+.item_shop_basket {
   display: flex;
   justify-content: space-between;
   align-items: center;

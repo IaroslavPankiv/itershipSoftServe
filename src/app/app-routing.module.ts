@@ -14,16 +14,20 @@ import {AuthGuard} from "./auth.guard";
 import {ShopItemComponent} from "./contents/shop-item/shop-item.component";
 import {AboutComponent} from "./header/about/about.component";
 import {ContactsComponent} from "./header/contacts/contacts.component";
+import {ContentsAllComponent} from "./contents/contents-all/contents-all.component";
 // import {AuthGuard} from "./auth.guard";
 
 
 const routes: Routes = [
-  { path: 'one', component: ContentsOneComponent},
+  { path: 'one', component: ContentsOneComponent,
+    canActivate: [AuthGuard]},
   { path: 'two', component: ContentsTwoComponent},
   { path: 'three', component: ContentsThreeComponent},
-  { path: 'login', component: LoginComponent},
+  { path: 'login', component: LoginComponent,
+    canActivate: [AuthGuard]},
 
-  { path: 'basket', component: BasketComponent},
+  { path: 'basket', component: BasketComponent,
+    canActivate: [AuthGuard]},
   { path: 'login/registration', component: RegistrationComponent},
   { path: 'login/enter', component: EnterComponent,
     },
@@ -31,10 +35,12 @@ const routes: Routes = [
   { path: 'user', component: UserRoomComponent,
   canActivate: [AuthGuard]
   },
-  { path: 'item', component: ShopItemComponent},
+  { path: 'item', component: ShopItemComponent,
+   },
   { path: 'about', component: AboutComponent},
   { path: 'contacts', component: ContactsComponent},
-  { path: 'home/one', component: ContentsOneComponent}
+  { path: 'home/one', component: ContentsOneComponent},
+  { path: 'all', component: ContentsAllComponent}
 
 ];
 
@@ -55,4 +61,5 @@ export const routingComponents = [
   ShopItemComponent,
   AboutComponent,
   ContactsComponent,
+  ContentsAllComponent
 ]

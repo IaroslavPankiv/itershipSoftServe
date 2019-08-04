@@ -1,49 +1,105 @@
 
-<div *ngIf="whooIsUser" class="container">
-  <mat-card class="example-card">
 
-    <div mat-card-avatar class="example-header-image"></div>
 
-    <div class="desc"  >
-      <p>user: <span>{{user?.username}}</span></p>
-      <p> name:  <span>{{user?.first_name}} </span></p>
-      <p> email:  <span>{{user?.email}} </span></p>
 
+
+
+
+
+
+<mat-tab-group animationDuration="1000ms">
+  <mat-tab label="Info">
+    <div *ngIf="whooIsUser" class="container">
+      <mat-card class="example-card">
+
+        <div mat-card-avatar class="example-header-image"></div>
+
+        <div class="desc"  >
+          <p>user: <span>{{user?.username}}</span></p>
+          <p> name:  <span>{{user?.first_name}} </span></p>
+          <p> email:  <span>{{user?.email}} </span></p>
+
+         </div>
+
+
+        <p></p>
+        <p></p>
+        <mat-card-actions>
+          <button mat-button color="warn" (click)="logauut()" >Exit</button>
+
+        </mat-card-actions>
+    </mat-card>
     </div>
 
 
-    <p></p>
-    <p></p>
-    <mat-card-actions>
-      <button mat-button color="warn" (click)="logauut()" >Exit</button>
+    <div *ngIf="!whooIsUser" class="container">
+      <mat-card class="example-card admin">
 
-    </mat-card-actions>
-  </mat-card>
-</div>
+        <div mat-card-avatar class="example-header-image"></div>
+
+        <div class="desc"  >
+          <p>Admin: <span>{{user?.username}}</span></p>
+          <p> Admin name:  <span>{{user?.first_name}} </span></p>
+          <p> Admin email:  <span>{{user?.email}} </span></p>
+
+        </div>
 
 
-<div *ngIf="!whooIsUser" class="container">
-  <mat-card class="example-card admin">
+        <p></p>
+        <p></p>
+        <mat-card-actions>
+          <button mat-button color="warn" (click)="logauut()" >Exit</button>
 
-    <div mat-card-avatar class="example-header-image"></div>
-
-    <div class="desc"  >
-      <p>Admin: <span>{{user?.username}}</span></p>
-      <p> Admin name:  <span>{{user?.first_name}} </span></p>
-      <p> Admin email:  <span>{{user?.email}} </span></p>
-
+        </mat-card-actions>
+      </mat-card>
     </div>
-
-
-    <p></p>
-    <p></p>
-    <mat-card-actions>
-      <button mat-button color="warn" (click)="logauut()" >Exit</button>
-
-    </mat-card-actions>
-  </mat-card>
-</div>
+  </mat-tab>
 
 
 
 
+  <mat-tab label="Show my coments">
+    <div class="container">
+      <mat-card class="example-card">
+        <div class="coments">
+          <div class="coment" *ngFor="let coments of myComents">
+            <span class="coment_name">Name : {{coments.user_id}}</span>
+
+            <div class="coments_text" >
+              {{coments.text}}
+            </div>
+            <div class="options">
+              <button class="btn del" mat-raised-button color="warn" (click)="dellMyComent(coments)">dell</button>
+              <button class="btn update" mat-raised-button color="primary" (click)="updateMyCometn(coments)">update</button>
+            </div>
+
+
+          </div>
+        </div>
+
+
+        <!--<div class="item_message" *ngIf="item">-->
+          <!--<div class="col-md-6">-->
+            <!--<form>-->
+              <!--<div class="form-group">-->
+                <!--<label for="message"></label>-->
+                <!--<textarea  class="form-control" name="message" rows="3" [(ngModel)]="com.text" placeholder=" Write coment"></textarea>-->
+
+              <!--</div>-->
+              <!--<button (click)="sendComentar()"  type="submit" class="btn btn-info">Send</button>-->
+            <!--</form>-->
+          <!--</div>-->
+        <!--</div>-->
+
+
+
+
+    </mat-card>
+    </div>
+  </mat-tab>
+
+
+  <mat-tab label="Third">Content 3
+
+  </mat-tab>
+</mat-tab-group>

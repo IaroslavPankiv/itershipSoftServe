@@ -10,15 +10,14 @@
 
       </div>
 
-    <div class="item">
-      <div class="ecom-ui ecom-ui-six">
+    <div class="item_shop_basket" *ngIf="item" >
+      <div class="ecom-ui ecom-ui-six" >
         <span class="ecom-hot bg-lblue">New</span>
         <div class="img-container">
-          <a href="#"><img class="img-responsive" src="../../../assets/Tom_the_Cat.jpg" alt=""></a>
         </div>
         <div class="product-details">
-          <h4><a href="#">Baby Doll - Toys</a> <span class="pull-right lblue">$14.99</span></h4>
-          <p>The standard chunk of morel sate gypsum used since 1984.</p>
+          <h4>{{item.name}}<span class="pull-right lblue">${{item.prise}}</span></h4>
+          <p>{{item.description}}</p>
 
           <div class="sociale">
             <mat-icon #comments class="comments"
@@ -49,40 +48,40 @@
 
 
 
-      <div class="item">
-        <div class="ecom-ui ecom-ui-six">
-          <span class="ecom-hot bg-lblue">New</span>
-          <div class="img-container">
-            <a href="#"><img class="img-responsive" src="../../../assets/Tom_the_Cat.jpg" alt=""></a>
-          </div>
-          <div class="product-details">
-            <h4><a href="#">Baby Doll - Toys</a> <span class="pull-right lblue">$14.99</span></h4>
-            <p>The standard chunk of morel sate gypsum used since 1984.</p>
+      <!--<div class="item">-->
+        <!--<div class="ecom-ui ecom-ui-six">-->
+          <!--<span class="ecom-hot bg-lblue">New</span>-->
+          <!--<div class="img-container">-->
+            <!--<a href="#"><img class="img-responsive" src="../../../assets/Tom_the_Cat.jpg" alt=""></a>-->
+          <!--</div>-->
+          <!--<div class="product-details">-->
+            <!--<h4><a href="#">Baby Doll - Toys</a> <span class="pull-right lblue">$14.99</span></h4>-->
+            <!--<p>The standard chunk of morel sate gypsum used since 1984.</p>-->
 
-            <div class="sociale">
-              <mat-icon #comments class="comments"
-                        matBadge="{{count}}"
-                        matBadgeSize = 'small'
-                        matBadgePosition="below after"
-                        (click)="clickComments()"
+            <!--<div class="sociale">-->
+              <!--<mat-icon #comments class="comments"-->
+                        <!--matBadge="{{count}}"-->
+                        <!--matBadgeSize = 'small'-->
+                        <!--matBadgePosition="below after"-->
+                        <!--(click)="clickComments()"-->
 
-              >comments</mat-icon>
+              <!--&gt;comments</mat-icon>-->
 
-              <mat-icon #likes class="likes"
-                        (click)="clickLiles()"
-                        [class.likesOrange]="orange"
-              >star</mat-icon>
-            </div>
+              <!--<mat-icon #likes class="likes"-->
+                        <!--(click)="clickLiles()"-->
+                        <!--[class.likesOrange]="orange"-->
+              <!--&gt;star</mat-icon>-->
+            <!--</div>-->
 
-          </div>
-        </div>
-        <div class="quantity"> <span class="basket_span">Quantity:</span>
-          <input type="number" name="name" value="1">
-        </div>
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="quantity"> <span class="basket_span">Quantity:</span>-->
+          <!--<input type="number" name="name" value="1">-->
+        <!--</div>-->
 
-        <div class="total-price"><span class="basket_span">Price: </span> $549</div>
-        <div class="delite_item"><span class="basket_span">Delite this item</span><img src="../../../assets/del.png" alt="del"></div>
-      </div>
+        <!--<div class="total-price"><span class="basket_span">Price: </span> $549</div>-->
+        <!--<div class="delite_item"><span class="basket_span">Delite this item</span><img src="../../../assets/del.png" alt="del"></div>-->
+      <!--</div>-->
     </div>
 
 

@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EnterService } from "../login/enter/enter.service";
-
-import {HttpResponse} from "@angular/common/http";
 import User from "../../user";
-import {count} from "rxjs/operators";
 import {HeaderService} from "../../header/header.service";
-// import  User  from "../../user";
+
+
 
 @Component({
   selector: 'app-basket',
@@ -18,7 +16,7 @@ orange = true;
 comemnts = this.clickComments();
  count:number = 1;
 
-item = {};
+item ;
 
 
 
@@ -27,13 +25,13 @@ item = {};
 
   }
 
-user = this.enterServise.isLoggedIn()
-
+user = {};
+  massShopItem = this.headerServise.toShopItem;
 
 
   ngOnInit() {
-    // console.log(this.basketUser);
-  this.headerServise.cool
+
+    console.log(this.massShopItem);
 
   }
 

@@ -22,6 +22,10 @@ import { TokenInterceptorService } from "./token-interceptor.service";
 import {DialogModule} from 'primeng/dialog';
 import {ToastModule} from 'primeng/toast';
 import { JwtModule } from "@auth0/angular-jwt";
+import {OverlayModule} from "@angular/cdk/overlay";
+
+
+
 
 
 
@@ -52,6 +56,7 @@ export function tokenGetter() {
 
 
 
+
   ],
   imports: [
     BrowserModule,
@@ -74,7 +79,8 @@ export function tokenGetter() {
       }
     }),
     DialogModule,
-    ToastModule
+    ToastModule,
+    OverlayModule
 
 
 
@@ -86,6 +92,7 @@ export function tokenGetter() {
     EnterService,
     ContentService,
     AuthGuard,
+
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

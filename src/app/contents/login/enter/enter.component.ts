@@ -25,6 +25,7 @@ export class EnterComponent implements OnInit {
   user:any =  {};
   panelOpenState:any;
   hide = true;
+
   constructor(private enterServise: EnterService,
               private router: Router) { }
 
@@ -57,40 +58,21 @@ export class EnterComponent implements OnInit {
           alert('You are welkome  ' + user.uname)
         }
 
+
       },
       err => alert('err'));
   }
-
-  //вхід в акаунт
-//   loginUser()
-// {
-//   this._auth.loginUser(this.user)
-//     .subscribe((response: HttpResponse<any>) => {
-//         if (response) {
-//           let jwtToken = response.body.access_token;
-//           localStorage.setItem('token', jwtToken);
-//           console.log(jwtToken);
-//           this.router.navigate(['/user'])
-//         }
-//
-//         // this._auth.getUser().subscribe(
-//         //   res=>res => console.log(res),
-//         //   err => console.log(err))
-//         // this._auth.getAllUsers().subscribe(
-//         //   res => console.log(res),
-//         //   err => console.log(err))
-//       }
-//     );
-//
-// }
-
-
-
-
-
 
 
 
 
 }
+
+
+
+
+
+
+
+
 

@@ -1,15 +1,18 @@
-import {Component, Output, Input, OnInit, EventEmitter} from '@angular/core';
+import {Component, Output, Input, OnInit, EventEmitter, ViewChild, Injectable} from '@angular/core';
 import {EnterService} from "../contents/login/enter/enter.service";
 import {HttpResponse} from "@angular/common/http";
-import {DialogModule} from 'primeng/dialog';
+
 import User from '../user';
 import {HeaderService} from "./header.service";
-import {ViewEncapsulation} from "@angular/compiler/src/compiler_facade_interface";
+import {ContentsOneComponent} from "../contents/contents-one/contents-one.component";
 
 
 
 
 
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -18,50 +21,26 @@ import {ViewEncapsulation} from "@angular/compiler/src/compiler_facade_interface
 })
 export class HeaderComponent implements OnInit {
 
-
+items;
 
 log = this.isInvalid();
-
 
 
 
 user = this.enterServise.isLoggedIn();
 
   constructor(private enterServise: EnterService,
-              private headerServise: HeaderService) { }
+              public headerServise: HeaderService,
+             public  one: ContentsOneComponent) { }
+
+
+
 
   ngOnInit() {
-
-
-
-
+    this.isInvalid()
+    // console.log(this.headerServise.itemsIphone());
+// this.headerServise.getAllItems()
   }
-
-
-
-
-//  підписка і респонс на всі items
-//   public getAllItems() {
-//     this.headerServise.getAllItems().subscribe(
-//       (response: HttpResponse<any>) => {
-//         this.items = response.body
-//         err => console.log(err)
-//       }
-//     )
-//   }
-
-
- // підписка і респонс на категорії
- getCategory() {
-    this.headerServise.getAllItems().subscribe(
-      (response: HttpResponse<any>) => console.log(response),
-
-        err => console.log(err)
-
-    )
-  }
-
-
 
 
   isInvalid() {

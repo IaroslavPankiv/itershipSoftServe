@@ -11,13 +11,9 @@ export class LoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
-
-
-  // addSingle() {
-  //   this.messageService.add({severity:'success', summary:'Service Message', detail:'Via MessageService'});
-  // }
 
 
 

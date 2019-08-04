@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
 import {JwtHelperService} from '@auth0/angular-jwt';
-import { Observable } from 'rxjs';
 import User from "../../../user";
 
 
 
-//хедер
+
 
 
 
@@ -16,7 +14,7 @@ import User from "../../../user";
 })
 export class EnterService {
   loginUrl = "https://e-shop-auth.herokuapp.com/users/login";
-  userNameUrl = "https://e-shop-auth.herokuapp.com/users/me";
+  userNameUrl = "https://e-shop-auth.herokuapp.com/users/";
 
    private authUrl = 'https://e-shop-auth.herokuapp.com/users/auth'
   constructor(private http: HttpClient,
@@ -45,30 +43,24 @@ user: User;
   getToken() {
      return localStorage.getItem('token')
   }
-
+//виходить з акаунта
   logOut() {
      return localStorage.removeItem('token')
   }
 
 
 
-  isLoggedIn(){
+  isLoggedIn() {
     const jwt = localStorage.getItem('token');
-    // console.log(jwt);
-
     if ( jwt == null) {
-
       return false
 
     }
   const helper = new JwtHelperService();
-    const decodedToken =  helper.decodeToken(jwt)
-    // console.log(decodedToken);
+    const decodedToken =  helper.decodeToken(jwt);
 
+    return decodedToken;
 
-    // console.log('true')
-
-    return decodedToken
 
   }
 
@@ -84,14 +76,12 @@ user: User;
 
   // виводить зареєстрованого користавача
   getUsers() {
+    const id = this.isLoggedIn()
     const requestHeaders = {'Authorization': 'Bearer ' + localStorage.getItem('token') };
-
-    // console.log( JSON.stringify(requestHeaders))
-    // console.log(requestHeaders);
     return this.http.get<any>(
-      this.userNameUrl ,
+      this.userNameUrl + id.uid,
       { headers: requestHeaders , observe: 'response'}
-    )
+    );
   }
 
 
