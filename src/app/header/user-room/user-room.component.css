@@ -64,7 +64,7 @@ form, label, input, button {
 
 
 .coment_name {
-  font-size: 14px;
+  font-size: 11px;
   color: #777;
   margin-left: 15px;
 }
@@ -81,4 +81,39 @@ form, label, input, button {
 
 .mat-raised-button {
   line-height: 3;
+}
+
+
+
+.user_room {
+  position: relative;
+  z-index: 100;
+}
+
+
+.hide_popap{
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  overflow: hidden;
+  position: fixed;
+  z-index:99999;
+  background-color: #eee;
+  transition: 0.5s;
+
+}
+
+.item_message {
+  width: 50%;
+  height: 50px;
 }

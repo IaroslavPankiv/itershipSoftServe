@@ -21,14 +21,17 @@ import {ContentsAllComponent} from "./contents/contents-all/contents-all.compone
 const routes: Routes = [
   { path: 'one', component: ContentsOneComponent,
     canActivate: [AuthGuard]},
-  { path: 'two', component: ContentsTwoComponent},
-  { path: 'three', component: ContentsThreeComponent},
-  { path: 'login', component: LoginComponent,
+  { path: 'two', component: ContentsTwoComponent,
     canActivate: [AuthGuard]},
+  { path: 'three', component: ContentsThreeComponent,
+    canActivate: [AuthGuard]},
+  { path: 'login', component: LoginComponent,
+    },
 
   { path: 'basket', component: BasketComponent,
     canActivate: [AuthGuard]},
-  { path: 'login/registration', component: RegistrationComponent},
+  { path: 'login/registration', component: RegistrationComponent,
+  },
   { path: 'login/enter', component: EnterComponent,
     },
 
@@ -40,7 +43,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent},
   { path: 'contacts', component: ContactsComponent},
   { path: 'home/one', component: ContentsOneComponent},
-  { path: 'all', component: ContentsAllComponent}
+  { path: 'all', component: ContentsAllComponent,
+    canActivate: [AuthGuard]}
 
 ];
 

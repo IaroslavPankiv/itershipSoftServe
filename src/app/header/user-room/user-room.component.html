@@ -7,7 +7,7 @@
 
 
 
-<mat-tab-group animationDuration="1000ms">
+<mat-tab-group animationDuration="1000ms" class="user_room">
   <mat-tab label="Info">
     <div *ngIf="whooIsUser" class="container">
       <mat-card class="example-card">
@@ -65,7 +65,7 @@
           <div class="coment" *ngFor="let coments of myComents">
             <span class="coment_name">Name : {{coments.user_id}}</span>
 
-            <div class="coments_text" >
+              <div class="coments_text" >
               {{coments.text}}
             </div>
             <div class="options">
@@ -73,29 +73,38 @@
               <button class="btn update" mat-raised-button color="primary" (click)="updateMyCometn(coments)">update</button>
             </div>
 
+            <div class="hide_popap" [hidden]="hide" >
+              <div class="item_message" >
+
+                  <form>
+                    <div class="form-group">
+                      <label for="message"></label>
+                      <textarea  class="form-control" name="message" rows="3" required [(ngModel)]="edit" placeholder=" Write coment"></textarea>
+
+                    </div>
+                    <button (click)="sendComentar()"  type="submit" class="btn btn-info">Send</button>
+                    <button (click)="close()"  type="submit" class="btn btn-info">Close</button>
+                  </form>
+
+              </div>
+            </div>
+
+
+
 
           </div>
         </div>
 
 
-        <!--<div class="item_message" *ngIf="item">-->
-          <!--<div class="col-md-6">-->
-            <!--<form>-->
-              <!--<div class="form-group">-->
-                <!--<label for="message"></label>-->
-                <!--<textarea  class="form-control" name="message" rows="3" [(ngModel)]="com.text" placeholder=" Write coment"></textarea>-->
 
-              <!--</div>-->
-              <!--<button (click)="sendComentar()"  type="submit" class="btn btn-info">Send</button>-->
-            <!--</form>-->
-          <!--</div>-->
-        <!--</div>-->
 
 
 
 
     </mat-card>
     </div>
+
+
   </mat-tab>
 
 

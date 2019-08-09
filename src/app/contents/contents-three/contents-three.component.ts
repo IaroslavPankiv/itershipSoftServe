@@ -43,4 +43,17 @@ export class ContentsThreeComponent implements OnInit {
   }
 
 
+  goToBasket(item) {
+    item.InBasket = true;
+    console.log(item);
+    const it = this.headerServise.products.find(ite => ite.id === item.id);
+    if (it == undefined) {
+      this.headerServise.products.push(item);
+      localStorage.setItem('products', JSON.stringify(this.headerServise.products));
+    }
+
+  }
+
+
+
 }

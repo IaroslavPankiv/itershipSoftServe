@@ -18,7 +18,7 @@
         <p>{{item.description}}.</p>
       </div>
       <div class="ecom">
-        <a class="bg-lblue">Add to Cart</a>
+        <a class="bg-lblue" (click)="goToBasket(item)" *ngIf="!item.InBasket">Add to Cart</a>
       </div>
     </div>
   </div>

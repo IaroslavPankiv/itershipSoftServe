@@ -4,13 +4,13 @@
       <!-- Title -->
       <div class="total">
         <p>Shopping Bag</p>
-        <button mat-raised-button color="accent" class="total-prices">Send By</button>
+        <button mat-raised-button color="accent" class="total-prices" *ngIf="products" (click)="sendBuy(products)" >Send Buy</button>
 
-        <button mat-raised-button color="accent" class="total-prices">Talal price:</button>
+        <button mat-raised-button color="accent" class="total-prices" *ngIf="products" (click)="totalPrise()">Talal price: {{totprise}} </button>
 
       </div>
-
-    <div class="item_shop_basket" *ngIf="item" >
+    {{totPrise}}
+    <div class="item_shop_basket" *ngFor="let item of products">
       <div class="ecom-ui ecom-ui-six" >
         <span class="ecom-hot bg-lblue">New</span>
         <div class="img-container">
@@ -18,31 +18,33 @@
         <div class="product-details">
           <h4>{{item.name}}<span class="pull-right lblue">${{item.prise}}</span></h4>
           <p>{{item.description}}</p>
+          {{item.id}}
 
-          <div class="sociale">
-            <mat-icon #comments class="comments"
-                      matBadge="{{count}}"
-                      matBadgeSize = 'small'
-                      matBadgeColor="warn"
-                      matBadgePosition="below after"
-                      (click)="clickComments()"
+          <!--<div class="sociale">-->
+            <!--<mat-icon #comments class="comments"-->
+                      <!--matBadge="{{count}}"-->
+                      <!--matBadgeSize = 'small'-->
+                      <!--matBadgeColor="warn"-->
+                      <!--matBadgePosition="below after"-->
+                      <!--(click)="clickComments()"-->
 
-            >comments</mat-icon>
+            <!--&gt;comments</mat-icon>-->
 
-            <mat-icon #likes class="likes"
-                      (click)="clickLiles()"
-                      [class.likesOrange]="orange"
-            >star</mat-icon>
-          </div>
+            <!--<mat-icon #likes class="likes"-->
+                      <!--(click)="clickLiles()"-->
+                      <!--[class.likesOrange]="orange"-->
+            <!--&gt;star</mat-icon>-->
+          <!--</div>-->
 
         </div>
       </div>
       <div class="quantity"> <span class="basket_span">Quantity:</span>
-        <input type="number" name="name" value="1">
+        <input type="number" name="name" min="1" value="{{item?.quantity}}" [(ngModel)]="item.quantity" >
+
       </div>
 
-      <div class="total-price"><span class="basket_span">Price: </span> $549</div>
-      <div class="delite_item"><span class="basket_span">Delite this item</span><img src="../../../assets/del.png" alt="del"></div>
+      <div class="total-price"><span class="basket_span"  >Price: {{item.prise}} $ </span> </div>
+      <div class="delite_item" (click)="dellItemFromBasket(item)"><span class="basket_span">Delite this item</span><img src="../../../assets/del.png" alt="del"></div>
     </div>
 
 

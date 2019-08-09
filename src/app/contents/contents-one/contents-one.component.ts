@@ -24,6 +24,8 @@ export class ContentsOneComponent implements OnInit {
 
   items: {};
 
+  math:boolean;
+
 
 
   constructor(private contentServise: ContentService,
@@ -33,8 +35,9 @@ export class ContentsOneComponent implements OnInit {
 
 
   ngOnInit() {
+    console.log(this.headerServise.products);
     this.itemsOfCategory(3);
-
+// localStorage.removeItem("ids")
 
   }
 
@@ -69,10 +72,16 @@ export class ContentsOneComponent implements OnInit {
 
 
 //передаєм вибраний елемент в корзину
- // goToBasket(item) {
- //   console.log(item);
- //   this.headerServise.toBastetItems.push(item)
- // }
+ goToBasket(item) {
+   item.InBasket = true;
+   console.log(item);
+   const it = this.headerServise.products.find(ite => ite.id === item.id);
+   if (it == undefined) {
+     this.headerServise.products.push(item);
+     localStorage.setItem('products', JSON.stringify(this.headerServise.products));
+   }
+
+   }
 
 
 
@@ -81,7 +90,8 @@ export class ContentsOneComponent implements OnInit {
 
   goToShopItem(item) {
     this.router.navigate(['/item']);
-    return this.headerServise.toShopItem = item
+
+    return this.headerServise.toShopItem = item;
 
   }
 

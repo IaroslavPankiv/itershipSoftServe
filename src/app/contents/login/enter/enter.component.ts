@@ -61,6 +61,8 @@ export class EnterComponent implements OnInit {
 
       },
       err => alert('err'));
+
+
   }
 
 

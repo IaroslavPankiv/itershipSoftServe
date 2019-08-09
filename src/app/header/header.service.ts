@@ -12,7 +12,11 @@ import {sendComents} from "../contents/shop-item/coments-send-model";
 export class HeaderService {
 
   toShopItem;
-  toBastetItems: {};
+  products: Item[] = window.localStorage.getItem('products')
+    ? JSON.parse(window.localStorage.getItem('products'))
+    : [];
+
+  toBastetItems:any = [];
   iphone;
 
 
@@ -23,6 +27,8 @@ export class HeaderService {
   comentsUrl = "https://comment-web-service.herokuapp.com";
   // основна
   produrtіUrl = 'https://shop-shop.herokuapp.com';
+
+  createOrder = 'https://eshopwebapi20190731043135.azurewebsites.net'
 
   //https://shop-shop.herokuapp.com/api/shop/products/categories/{categoryId}?categoryId=1
 
@@ -167,8 +173,58 @@ export class HeaderService {
 
 
 
+  // получаємо всі товари в корзині
+  public getAllItemsFromBasket(id?) {
+    const requestHeaders = {
+      "Authorization": "Bearer " + localStorage.getItem('token'),
+      "Auth-Method": "GET",
+      "Auth-URL": this.produrtіUrl + "/api/shop/products/" + id,
+    };
+
+    return this.http.post<any>(
+      this.someUrl, {},
+      {headers: requestHeaders, observe: 'response'}
+    ).pipe(catchError(err => throwError('Something went wrong')))
+  }
 
 
+
+
+
+//получаєм номер замовлення
+  getOrderId( createOrderss) {
+
+    const requestHeaders = {
+      "Authorization": "Bearer " + localStorage.getItem('token'),
+      "Auth-Method": "POST",
+      "Auth-URL": this.createOrder + "/api/order",
+    };
+
+    return this.http.post<any>(
+      this.someUrl,
+      createOrderss ,
+      {headers: requestHeaders, observe: 'response'}
+    ).pipe(catchError(err => throwError('Something went wrong')))
+  }
+
+
+
+
+  // відправляємо замовлення по одному товару
+  sendOrderItem(sendItem) {
+
+    const requestHeaders = {
+      "Authorization": "Bearer " + localStorage.getItem('token'),
+      "Auth-Method": "POST",
+      "Auth-URL": this.createOrder + "/api/order_item",
+    };
+
+    return this.http.post<any>(
+      this.someUrl,
+      sendItem ,
+      {headers: requestHeaders, observe: 'response'}
+    ).pipe(catchError(err => throwError('Something went wrong')))
+  }
 
 
 

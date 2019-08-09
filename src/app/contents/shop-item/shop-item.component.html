@@ -10,7 +10,7 @@
         <p class="text">  <span class="span_text">{{item?.name}}</span></p>
         <p class="text">  <span class="span_text">{{item?.description}}</span></p>
         <p class="text"> $ <span class="span_text">{{item?.prise}}</span></p>
-        <button class="to_basket" mat-button>Add to basket</button>
+        <button class="to_basket" mat-button (click)="goToBasket(item)" >Add to basket</button>
       </div>
     </div>
     <div class="item_bottum">
@@ -18,7 +18,7 @@
 
     <div class="coments">
       <div class="coment" *ngFor="let coments of coment">
-        <span class="coment_name">Name : {{coments.user_id}}</span>
+        <span class="coment_name">Name : {{coments.user_name}}</span>
 
         <div class="coments_text" >
           {{coments.text}}

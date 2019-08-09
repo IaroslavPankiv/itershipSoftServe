@@ -14,13 +14,14 @@ import {sendComents} from "../../contents/shop-item/coments-send-model";
 export class UserRoomComponent implements OnInit {
 // user: User[];
 
+  hide = true;
+  edit;
   user = new User('', '', '', '', '');
   myComents;
   whooIsUser: boolean;
   whooUser = this.enterServise.isLoggedIn()
-  // com = new sendComents("булоби класно ЄЄЄЄ", this.whooUser.id, 13, 0)
-
-
+  // com = new sendComents("булоби класно ЄЄЄЄ", this.whooUser.id, 13, 0;
+    thisComent;
 
 
   constructor(private enterServise: EnterService,
@@ -84,18 +85,9 @@ export class UserRoomComponent implements OnInit {
 
 
 // редагує вибраний коментар
-  updateMyCometn(coment) {
-    const com = new sendComents("булоби класно ЄЄЄЄ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", coment.user_id, coment.product_id, 0)
-    console.log(coment);
-    console.log(com)
-    this.headerServise.editMyComent(coment, com).subscribe(
-      (response: HttpResponse<any>) => {
-        console.log(response);
-        err => console.log(err)
-      }
-    )
-    this.getComentsForUser()
-
+  updateMyCometn(coments) {
+    this.thisComent = coments
+  this.hide = false;
 
   }
 
@@ -104,7 +96,7 @@ export class UserRoomComponent implements OnInit {
     console.log(coment);
     this.headerServise.dellMyComent(coment).subscribe(
       (response: HttpResponse<any>) => {
-        console.log(response);;
+        console.log(response);
         err => console.log(err)
       }
     )
@@ -113,6 +105,35 @@ export class UserRoomComponent implements OnInit {
   }
 
 
+  close() {
+    this.hide = true;
+  }
+
+
+
+  sendComentar() {
+    const com = new sendComents(this.edit, this.thisComent.user_id, this.thisComent.product_id, 0)
+    console.log(this.thisComent);
+    console.log(com)
+    this.headerServise.editMyComent(this.thisComent, com).subscribe(
+      (response: HttpResponse<any>) => {
+        console.log(response);
+        console.log(response.body.response.status)
+        if (response.body.response.status == 200)  {
+              alert('your coments its edit');
+            this.getComentsForUser()
+        }else {
+          alert('full')
+        }
+        err => console.log(err)
+      }
+    )
+    this.hide = true;
+    this.getComentsForUser()
+    this.edit = ' '
+
+
+  }
 
 
 

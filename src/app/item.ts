@@ -3,10 +3,10 @@ import {executeBrowserBuilder} from "@angular-devkit/build-angular";
 export interface Item {
   categoryId: number;
   name: string;
-  price: number;
+  prise: number;
   description: string;
   photo?: string;
-  id: number;
+  id?: number;
   quantity: number
 }
 

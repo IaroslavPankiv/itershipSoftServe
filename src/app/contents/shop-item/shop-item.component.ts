@@ -13,6 +13,7 @@ import {EnterService} from "../login/enter/enter.service";
 
 
 
+
 @Component({
   selector: 'app-shop-item',
   templateUrl: './shop-item.component.html',
@@ -21,9 +22,9 @@ import {EnterService} from "../login/enter/enter.service";
 export class ShopItemComponent implements OnInit {
 
 
-  item = this.headerServese.toShopItem;
+  item = this.headerServise.toShopItem;
   userComentator = this.enterServise.isLoggedIn()
-  com = new sendComents("", this.userComentator.uid, this.item.id, 0)
+  com = new sendComents("", this.userComentator.uid, this.headerServise.toShopItem.id, 0)
 
   coment;
 
@@ -31,16 +32,18 @@ export class ShopItemComponent implements OnInit {
 
 
 // itemId = this.item[3]
-  constructor(private headerServese: HeaderService,
+  constructor(private headerServise: HeaderService,
               public enterServise: EnterService) {
   }
 
   ngOnInit() {
 
     // console.log(this.sendComent);
-    console.log(this.item);
+console.log(this.item)
+    if (this.item.id != undefined) {
+      this.ifShowComents(this.item)
+    }
 
-    this.ifShowComents(this.item)
     // console.log(this.coment);
 
 
@@ -49,7 +52,7 @@ export class ShopItemComponent implements OnInit {
 
 //берем всі соментарі для вибраного товару
   showComentsitem(item) {
-    this.headerServese.getComentsForItem(item).subscribe(
+    this.headerServise.getComentsForItem(item).subscribe(
       (response) => {
 
         this.coment = response.body.response.body;
@@ -75,8 +78,16 @@ export class ShopItemComponent implements OnInit {
     }
   }
 
+  goToBasket(item) {
+    item.InBasket = true;
+    console.log(item);
+    const it = this.headerServise.products.find(ite => ite.id === item.id);
+    if (it == undefined) {
+      this.headerServise.products.push(item);
+      localStorage.setItem('products', JSON.stringify(this.headerServise.products));
+    }
 
-
+  }
 
   // getComentsUser(user_id) {
   //   console.log(user_id)
@@ -102,7 +113,7 @@ export class ShopItemComponent implements OnInit {
 //відправляє комент з даними про товар і користувача
   sendComentar() {
     console.log(this.com)
-    this.headerServese.sendComentsForItem(this.com).subscribe(
+    this.headerServise.sendComentsForItem(this.com).subscribe(
       (response) => {
         console.log(response);
       },

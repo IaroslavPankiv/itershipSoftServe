@@ -174,3 +174,8 @@ p {
   background-color: #f66e6eb5 !important;
 }
 
+.bg-lblue:hover {
+  transform: scale(1.2);
+  transition: 0.4s;
+}
+

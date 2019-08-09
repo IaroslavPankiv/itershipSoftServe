@@ -14,7 +14,8 @@ items: {}
               private router: Router,) { }
 
   ngOnInit() {
-    this.itemsOfCategory(4)
+    this.itemsOfCategory(4);
+    console.log(this.headerServise.products);
   }
 
 // виводить категорію Samsung
@@ -34,6 +35,18 @@ items: {}
   goToShopItem(item) {
     this.router.navigate(['/item']);
     return this.headerServise.toShopItem = item
+
+  }
+
+
+  goToBasket(item) {
+    item.InBasket = true;
+    console.log(item);
+    const it = this.headerServise.products.find(ite => ite.id === item.id);
+    if (it == undefined) {
+      this.headerServise.products.push(item);
+      localStorage.setItem('products', JSON.stringify(this.headerServise.products));
+    }
 
   }
 
